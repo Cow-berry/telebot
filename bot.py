@@ -9,13 +9,26 @@ from pathlib import Path  # для проверки существования �
 from telebot import types # для крутых клавиатур
 
 bot = telebot.TeleBot(config.token)  # создаём объект бота
-helpmess = ["/hw =>дз на завтра если оно есть",
+helpmess = ["/hw =>дз на завтра если оно есть", "/hwsub - дз на определённый предмет. Просто введите эту команду, дальше станет понятно, что делать",
 "/hwdate [дата в формате dd.mm.yyyy d-day, m-month, y-year] =>  дз на определённую дату если оно есть",
 "/allhw  =>вся актуальную домашку",
 "/timetable   =>всё известное расписание",
 "/wish [текст пожелания] => автор бота прочтёт её",
 "/info  => важная организационная информация",
 "/help => список всех этих команд"]
+
+def read_file(name):
+        try:
+            file = open(name, 'r')
+        except Exception as e:
+            logging.error(e)
+        ls = file.readlines()
+        l = ''
+        for i in ls:
+            l += i
+        file.close()
+        return l
+
 
 def log(message):
     logfile = open("log.txt", 'a')
@@ -50,13 +63,11 @@ def tommorrow_hw(message):  # функция обрабатывающая соо
         tommorrowx = tommorrowx + datetime.timedelta(days=1)
     tommorrow = tommorrowx.strftime("%d.%m.%Y")
     try:
-        hwfile = open(tommorrow + "_hw.txt", 'r')
-        lines = hwfile.readlines()
-        for i in lines:
-            bot.send_message(message.chat.id, i)
-        hwfile.close()
-    except IOError:
-        bot.send_message(message.chat.id, "д/з на завтра ещё не записывали")
+        hw = read_file(tommorrow + "_hw.txt")
+        bot.send_message(message.chat.id, hw)
+    except Exception as e:
+        bot.send_message(message.chat.id, "Дз на завтра не записано")
+        logging.error(e)
 
 
 @bot.message_handler(commands=["hwdate"])
@@ -67,13 +78,12 @@ def date_hw(message):
         bot.send_message(message.chat.id, "вы не ввели дату в формате dd.mm.yyyy")
     else:
         try:
-            hwfile = open(date + "_hw.txt", 'r')
-            lines = hwfile.readlines()
-            for i in lines:
-                bot.send_message(message.chat.id, i)
-            hwfile.close()
+            hw = read_file(date+"_hw.txt")
+            bot.send_message(message.chat.id, hw)
         except IOError:
             bot.send_message(message.chat.id, "д/з на %s ещё не записывали" % date)
+        except Exception as e:
+            logging.error(e)
 
 
 @bot.message_handler(commands=["write"])
@@ -152,16 +162,8 @@ def wish(message):
 def info(message):
     log(message)
     id = message.chat.id
-    infofile = open("info.txt", 'r')
-    lines = infofile.readlines()
-    if lines == []:
-        bot.send_message(id, "На данный момент нет никакой важной информации.")
-        return
-    for i in lines:
-        if i != '':
-            bot.send_message(id, i)
-    infofile.close()
-
+    infox = read_file("info.txt")
+    bot.send_message(message.chat.id, infox)
 
 @bot.message_handler(commands=["info_remove"])
 def remove_info(message):
@@ -215,6 +217,7 @@ def send (message):
         bot.send_message(id, mes)
     except Exception:
         bot.send_message(message.chat.id, "возможно вы ввели несуществующий id")
+
 @bot.message_handler(commands=["timetable"])
 def timetable (message):
     log(message)
@@ -246,13 +249,13 @@ def help(message):
     for i in helpmess:
         bot.send_message(id, i)
 
-@bot.message_handler(commands=["hvsub"])
+@bot.message_handler(commands=["hwsub"])
 def hwsub(message):
-    sub = message.text[7:]
-    keyboard = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True)
+    log(message)
+    keyboard = types.ReplyKeyboardMarkup(row_width=3, resize_keyboard=True, one_time_keyboard=True)
     try:
         subfile = open("subjects.txt", 'r')
-    except Exception as e
+    except Exception as e:
         logging.error(e)
         return
     subs = subfile.readlines()
@@ -262,13 +265,29 @@ def hwsub(message):
     bot.register_next_step_handler(sent, hwsent)
 
 def hwsent(message):
+    log(message)
     try:
         subfile = open(message.text + ".txt", 'r')
-    except Exception as e
+    except Exception as e:
         logging.error(e)
         return
+    sub = subfile.readlines()
+    newsub = ''
+    for i in sub:
+        newsub += i
+    bot.send_message(message.chat.id, newsub)
+    subfile.close()
 
-
+@bot.message_handler(commands = ["duty"])
+def duty(message):
+    log(message)
+    dutyf = open("duty.txt", 'r')
+    lines = dutyf.readlines()
+    linesx = ''
+    for i in lines:
+        linesx += i
+    bot.send_message(message.chat.id, linesx)
+    dutyf.close()
 
 while True:
     try:
