@@ -50,7 +50,7 @@ def add_file(name, text):
     file.close()
 
 def is_autor(id):
-    if (id == config.id) or (id == config.kesha_id) or (id == config.kesha_id):
+    if (id == config.id) or (id == config.kesha_id) or (id == config.gosha_id):
         return True
     else:
         return False
@@ -288,6 +288,32 @@ def duty(message):
         linesx += i
     bot.send_message(message.chat.id, linesx)
     dutyf.close()
+
+@bot.message_handler(commands=["konspekt"])
+def konspekt(message):
+    log(message)
+    konspektf = open("konspekt.zip", 'rb')
+    bot.send_document(message.chat.id, konspektf)
+    konspektf.close()
+
+@bot.message_handler(commands=["all"])
+def send_all(message):
+    log(message)
+    if not (is_autor(message.chat.id)) :
+        bot.send_message(message.chat.id, "Отказано в доступе")
+        access = open("access.txt", 'a')
+        access.write(message.chat.first_name + " " + message.chat.last_name + "\nник -- " + str(
+            message.chat.username) + "\nid - " + str(message.chat.id) + "\nтекст - " + message.text + "\n\n")
+        access.close()
+        return
+    text = message.text[4:]
+    idesf = open("id.txt", 'r')
+    id = idesf.readlines()
+    idesf.close()
+    if text == "" :
+        return
+    for i in id :
+        bot.send_message(i, text)
 
 while True:
     try:
