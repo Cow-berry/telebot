@@ -163,7 +163,8 @@ def info(message):
     log(message)
     id = message.chat.id
     infox = read_file("info.txt")
-    bot.send_message(message.chat.id, infox)
+    if infox != '':
+        bot.send_message(message.chat.id, infox)
 
 @bot.message_handler(commands=["info_remove"])
 def remove_info(message):
@@ -310,7 +311,7 @@ def send_all(message):
     idesf = open("id.txt", 'r')
     id = idesf.readlines()
     idesf.close()
-    if text == "" :
+    if text == "":
         return
     for i in id :
         bot.send_message(i, text)
