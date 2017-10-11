@@ -34,8 +34,8 @@ def log(message):
     logfile = open("log.txt", 'a')
     today = datetime.date.today()
     logfile.write(
-        time.strftime("%d.%m.%Y  %H:%M:%S", time.localtime(time.time())) + "\n" + message.chat.first_name + " " + message.chat.last_name + "\nник -- "
-        + str(message.chat.username) + "\nid - " + str(message.chat.id) + "\nтекст - "+ message.text + "\n\n")
+        time.strftime("%d.%m.%Y  %H:%M:%S", time.localtime(time.time())) + "  " + str(message.chat.id) + "  " + message.chat.first_name + " " + message.chat.last_name + "  "
+        + str(message.chat.username) + "  " + message.text + "\n")
     logfile.close()
 
 def write_file(name, text):
@@ -164,7 +164,7 @@ def info(message):
     id = message.chat.id
     infox = read_file("info.txt")
     if infox != '':
-        bot.send_message(message.chat.id, infox)
+                                                                                                                                                       bot.send_message(message.chat.id, infox)
 
 @bot.message_handler(commands=["info_remove"])
 def remove_info(message):
@@ -307,7 +307,9 @@ def send_all(message):
             message.chat.username) + "\nid - " + str(message.chat.id) + "\nтекст - " + message.text + "\n\n")
         access.close()
         return
-    text = message.text[4:]
+    text = message.text
+    if text.startswith('/all') :
+        text = text[4:]
     idesf = open("id.txt", 'r')
     id = idesf.readlines()
     idesf.close()
@@ -315,6 +317,19 @@ def send_all(message):
         return
     for i in id :
         bot.send_message(i, text)
+
+@bot.message_handler(commands = ["i"])
+def important(message):
+    log(message)
+    if not (is_autor(message.chat.id)):
+        bot.send_message(message.chat.id, "Отказано в доступе")
+        access = open("access.txt", 'a')
+        access.write(message.chat.first_name + " " + message.chat.last_name + "\nник -- " + str(
+            message.chat.username) + "\nid - " + str(message.chat.id) + "\nтекст - " + message.text + "\n\n")
+        access.close()
+        return
+    message.text = "    появилась важная информация"
+    send_all(message)
 
 while True:
     try:
