@@ -8,10 +8,15 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config.py" afterPath="$PROJECT_DIR$/config.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/timetable.txt" afterPath="$PROJECT_DIR$/timetable.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Алгебра.txt" afterPath="$PROJECT_DIR$/Алгебра.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/География.txt" afterPath="$PROJECT_DIR$/География.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Англ.яз..txt" afterPath="$PROJECT_DIR$/Англ.яз..txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Геометрия.txt" afterPath="$PROJECT_DIR$/Геометрия.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/История.txt" afterPath="$PROJECT_DIR$/История.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Лит-ра.txt" afterPath="$PROJECT_DIR$/Лит-ра.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Мат.Ан..txt" afterPath="$PROJECT_DIR$/Мат.Ан..txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Математика.txt" afterPath="$PROJECT_DIR$/Математика.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Общество.txt" afterPath="$PROJECT_DIR$/Общество.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Прога.txt" afterPath="$PROJECT_DIR$/Прога.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Рус.яз..txt" afterPath="$PROJECT_DIR$/Рус.яз..txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Физика.txt" afterPath="$PROJECT_DIR$/Физика.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Химия.txt" afterPath="$PROJECT_DIR$/Химия.txt" />
     </list>
@@ -38,8 +43,8 @@
       <file leaf-file-name="bot.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/bot.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16">
-              <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+            <state relative-caret-position="416">
+              <caret line="241" column="43" lean-forward="false" selection-start-line="241" selection-start-column="43" selection-end-line="241" selection-end-column="43" />
               <folding>
                 <element signature="e#25#39#0" expanded="true" />
               </folding>
@@ -328,7 +333,14 @@
       <option name="project" value="LOCAL" />
       <updated>1507739642781</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="just save">
+      <created>1508008239470</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1508008239470</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -338,7 +350,7 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24973932" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -361,49 +373,50 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="more files + some new functions" />
     <MESSAGE value="added info command + some helping functions" />
-    <option name="LAST_COMMIT_MESSAGE" value="added info command + some helping functions" />
+    <MESSAGE value="just save" />
+    <option name="LAST_COMMIT_MESSAGE" value="just save" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>337</line>
+          <line>336</line>
           <option name="timeStamp" value="87" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>338</line>
+          <line>337</line>
           <option name="timeStamp" value="88" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>336</line>
+          <line>335</line>
           <option name="timeStamp" value="89" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>339</line>
+          <line>338</line>
           <option name="timeStamp" value="90" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>258</line>
+          <line>257</line>
           <option name="timeStamp" value="91" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>272</line>
+          <line>271</line>
           <option name="timeStamp" value="92" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>271</line>
+          <line>270</line>
           <option name="timeStamp" value="93" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/bot.py</url>
-          <line>259</line>
+          <line>258</line>
           <option name="timeStamp" value="94" />
         </line-breakpoint>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
@@ -767,8 +780,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/bot.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16">
-          <caret line="9" column="1" lean-forward="false" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state relative-caret-position="416">
+          <caret line="241" column="43" lean-forward="false" selection-start-line="241" selection-start-column="43" selection-end-line="241" selection-end-column="43" />
           <folding>
             <element signature="e#25#39#0" expanded="true" />
           </folding>

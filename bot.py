@@ -7,7 +7,7 @@ import datetime  # для работы со временем
 import time
 from pathlib import Path  # для проверки существования файла
 from telebot import types # для крутых клавиатур
- 
+
 bot = telebot.TeleBot(config.token)  # создаём объект бота
 helpmess = ["/hw =>дз на завтра если оно есть", "/hwsub - дз на определённый предмет. Просто введите эту команду, дальше станет понятно, что делать",
 "/hwdate [дата в формате dd.mm.yyyy d-day, m-month, y-year] =>  дз на определённую дату если оно есть",
@@ -236,11 +236,10 @@ def all_hw(message):
     log(message)
     allhwf = open("allhw.txt", 'r')
     lines = allhwf.readlines()
+    text = ''
     for i in lines:
-        if i == '':
-            bot.send_message(message.chhat.id, '.')
-        else:
-            bot.send_message(message.chat.id, i)
+        text += i
+    bot.send_message(message.chat.id, text)
     allhwf.close()
 
 @bot.message_handler(commands=["help"])
