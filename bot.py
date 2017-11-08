@@ -32,7 +32,6 @@ def read_file(name):
 
 def log(message):
     logfile = open("log.txt", 'a')
-    today = datetime.date.today()
     logfile.write(
         time.strftime("%d.%m.%Y  %H:%M:%S", time.localtime(time.time())) + "  " + str(message.chat.id) + "  " + message.chat.first_name + " " + message.chat.last_name + "  "
         + str(message.chat.username) + "  " + message.text + "\n")
@@ -58,13 +57,40 @@ def is_autor(id):
 @bot.message_handler(commands=["hw"])  # создаём того кто будет перехватывать сообщения с этой командой
 def tommorrow_hw(message):  # функция обрабатывающая сообщение. message -- объект, который хранит оочень много информации о пользователе, также хранит текст сообщения
     log(message)
+    id = message.chat.id
+#     bot.send_message(id, """
+#     *Математика*:\n    2.90 -- 2.100\n    3.1, 3.2, №1 -- 3\n    3.3 -- 3.17\n    n-мерный вариант неравенства Коши при помощи сближения\n    написать чистовой конспект
+# *Обществознание* --- к/р по мировоззрению
+# *Геометрия* --- 679, 680, 682 -- 692
+# *Мат. ан.* --- повторить все 15 аксиом вещественных чисел
+# *Лит-ра* --- написать сочинение на одну из тем:
+#     1) образ Петербурга в Петербургских повестях (обратиться к персонажам)
+#     2) обезличенность действительности
+#     3) соотношение фантастического и действительного (Шинель)
+#     4) Неоднозначность образа Башмачкина
+#     5) образ романтического героя в Петербургских поестях
+#     6) Истинность искусства (Портрет)
+# *Рус. яз.* --- учить знаки препинания в сложно-сочинённых предложениях и случаи, когда подлежащее выражено словосочетанием
+# *Англ. яз.*:
+#     1) группа Даниила Алексеевича --- сделать глоссарий неизвестных слов из 3-ей главы книги 'The Time Machine'
+#     2) группа Натальи Николаевны --- ничего
+# *Прога*:
+#     1) группа Алексея Константиновича --- разработать дизайн своей Машины Тьюринга
+#     2) группа Никиты Игоревича --- <буду рад, если кто-то скажет>
+# *Физика* --- прорешать к/р (сделать 215 -- 217, 224 -- 226, 228 -- 230)
+# *Алгебра* --- ничего
+# *География* --- ничего
+# *История* --- ничего
+# *Химия* --- ничего
+# *Биология* --- ничего
+#     """, parse_mode="Markdown")
     tommorrowx = datetime.date.today() + datetime.timedelta(days=1)
     if datetime.date.isoweekday(datetime.date.today()) == 6 :
         tommorrowx = tommorrowx + datetime.timedelta(days=1)
     tommorrow = tommorrowx.strftime("%d.%m.%Y")
     try:
         hw = read_file(tommorrow + "_hw.txt")
-        bot.send_message(message.chat.id, hw)
+        bot.send_message(message.chat.id, hw, parse_mode="Markdown")
     except Exception as e:
         bot.send_message(message.chat.id, "Дз на завтра не записано")
         logging.error(e)
@@ -239,7 +265,7 @@ def all_hw(message):
     text = ''
     for i in lines:
         text += i
-    bot.send_message(message.chat.id, text)
+    bot.send_message(message.chat.id, text, parse_mode="Markdown")
     allhwf.close()
 
 @bot.message_handler(commands=["help"])
